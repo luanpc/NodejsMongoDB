@@ -2,6 +2,7 @@ const compression = require('compression')
 const express = require('express')
 const { default: helmet } = require('helmet')
 const morgan = require('morgan')
+require('dotenv').config()
 const { checkOverload } = require('./helpers/check.connect')
 const app = express()
 

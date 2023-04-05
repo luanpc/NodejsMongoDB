@@ -1,10 +1,11 @@
 const app = require("./src/app");
-const PORT = 3055
-const server = app.listen(3055, () => {
+const PORT = process.env.DEV_APP_PORT || 3056
+
+const server = app.listen(PORT, () => {
     console.log(`Server start with ${PORT}`)
 })
 
-process.on('SIGNINT', () => {
-    server.close(() => console.log(`Exit server express`))
-    //notify.send() email, message
-})
+// process.on('SIGNINT', () => {
+//     server.close(() => console.log(`Exit server express`))
+//     //notify.send() email, message
+// })
