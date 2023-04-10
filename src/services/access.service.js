@@ -6,6 +6,7 @@ const crypto = require('crypto')
 const KeyTokenService = require("./keyToken.service")
 const { createTokenPair } = require("../auth/authUtils")
 const { getInfoData } = require("../utils")
+const { BadRequestError } = require("../core/error.response")
 const RoleShop = {
     SHOP: 'SHOP',
     WRITER: 'WRITER',
@@ -21,10 +22,12 @@ class AccessService {
             const shopHolder = await shopModel.findOne({ email }).lean() // lean -> query nhanh trả về Object Javacript thuần
 
             if (shopHolder) {
-                return {
-                    code: 'xxxx',
-                    message: 'Shop already registered !'
-                }
+                //Use handler
+                throw new BadRequestError('Error: Shop already registered !')
+                // return {
+                //     code: 'xxxx',
+                //     message: 'Shop already registered !'
+                // }
             }
 
             const passwordHash = await bcrypt.hash(password, 10) // 10: độ khó của thuật toán, số cao ảnh hg CPU
@@ -54,10 +57,11 @@ class AccessService {
                 })
 
                 if (!publicKeyString) {
-                    return {
-                        code: 'xxx',
-                        message: 'publicKeyString error'
-                    }
+                    throw new BadRequestError('Key store error')
+                    // return {
+                    //     code: 'xxx',
+                    //     message: 'publicKeyString error'
+                    // }
                 }
 
                 //create token pair
@@ -77,11 +81,12 @@ class AccessService {
                 metadata: null
             }
         } catch (error) {
-            return {
-                code: 'xxx',
-                message: error.message,
-                status: 'error'
-            }
+            throw new BadRequestError(error.message)
+            // return {
+            //     code: 'xxx',
+            //     message: error.message,
+            //     status: 'error'
+            // }
         }
     }
 }
