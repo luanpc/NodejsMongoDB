@@ -47,15 +47,8 @@ const permission = (permission) => {
         return next()
     }
 }
-// Handle function error for access router (access/index.js)
-const asyncHandler = fn => {
-    return (req, res, next) => {
-        fn(req, res, next).catch(next)
-    }
-}
 
 module.exports = {
     apiKey,
-    permission,
-    asyncHandler
+    permission
 }

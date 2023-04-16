@@ -1,5 +1,15 @@
 'use strict'
 const JWT = require('jsonwebtoken')
+const { AuthFailureError, NotFoundError } = require('../core/error.response')
+const asyncHandler = require('../helpers/asyncHandler')
+const { findByUserId } = require('../services/keyToken.service')
+
+const HEADER = {
+    API_KEY: 'x-api-key',
+    CLIENT_ID: 'x-client-id',
+    AUTHORIZATION: 'authorization'
+}
+
 const createTokenPair = async (payload, publicKey, privateKey) => {
     try {
         //accessToken 
@@ -26,6 +36,40 @@ const createTokenPair = async (payload, publicKey, privateKey) => {
     }
 }
 
+// for Logout
+const authenication = asyncHandler(async (req, res, next) => {
+    /*
+    1- Check userId missing??
+    2- Check user in db + Check keyStore with this userId
+    3- Get accessToken
+    4- Verify Token
+    5- OK all -> Return next()
+    */
+
+    //Step 1
+    const userId = req.headers[HEADER.CLIENT_ID]
+    if (!userId) throw new AuthFailureError('Invalid Request')
+    //Step 2
+    const keyStore = await findByUserId(userId)
+    if (!keyStore) throw new NotFoundError('Not found keyStore')
+
+    //Step 3
+    const accessToken = req.headers[HEADER.AUTHORIZATION]
+    if (!accessToken) throw new AuthFailureError('Invalid Request')
+
+    //Step 3
+    try {
+        const decodeUser = JWT.verify(accessToken, keyStore.publicKey)
+        if (userId !== decodeUser.userId) throw new AuthFailureError('Invalid UserID')
+        req.keyStore = keyStore
+        return next()
+
+    } catch (error) {
+        throw error
+    }
+})
+
 module.exports = {
-    createTokenPair
+    createTokenPair,
+    authenication
 }

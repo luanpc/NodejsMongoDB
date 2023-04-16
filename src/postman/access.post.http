@@ -19,3 +19,9 @@ x-api-key: 2491343e22a68383eb2fc6dba1e957fdb0b781bda065d191a0ab1748b7805b55340c4
     "email": "shoplulu123@gmail.com",
     "password": "abc123"
 }
+
+### Logout
+POST {{url_dev}}/shop/logout
+x-api-key: 2491343e22a68383eb2fc6dba1e957fdb0b781bda065d191a0ab1748b7805b55340c405fc8a6888249200ba71edc85af894291eb12eedb8a3a7a3a4a5d9f5dd7
+x-client-id: 6435849e67dfc8c5032e9da4
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM1ODQ5ZTY3ZGZjOGM1MDMyZTlkYTQiLCJlbWFpbCI6InNob3BsdWx1MTIzQGdtYWlsLmNvbSIsImlhdCI6MTY4MTY2MDI4NiwiZXhwIjoxNjgxODMzMDg2fQ.5xadah84PcTUjDIQdW4LMcEdvyYDw3WilmG6kx0cpds
