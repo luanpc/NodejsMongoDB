@@ -34,11 +34,23 @@ class KeyTokenService {
     }
 
     static findByUserId = async (userId) => {
-        return await keytokenModel.findOne({ user: Types.ObjectId(userId) }).lean()
+        return await keytokenModel.findOne({ user: userId }).lean()
     }
 
     static removeKeyById = async (id) => {
-        return await keytokenModel.remove(id)
+        return await keytokenModel.findOneAndRemove(id)
+    }
+
+    static findByRefreshTokenUsed = async (refreshToken) => {
+        return await keytokenModel.findOne({ refreshTokenUsed: refreshToken }).lean()
+    }
+
+    static findByRefreshToken = async (refreshToken) => {
+        return await keytokenModel.findOne({ refreshToken })
+    }
+
+    static deleteKeyById = async (userId) => {
+        return await keytokenModel.findOneAndDelete({ user: userId })
     }
 }
 
