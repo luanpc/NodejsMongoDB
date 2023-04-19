@@ -1,12 +1,12 @@
 @url_dev=http://localhost:3056/v1/api
 
-#CreateProduct
+###CreateProduct
 POST {{url_dev}}/product
 Content-Type: application/json
 x-api-key: 2491343e22a68383eb2fc6dba1e957fdb0b781bda065d191a0ab1748b7805b55340c405fc8a6888249200ba71edc85af894291eb12eedb8a3a7a3a4a5d9f5dd7
-//ID of Shop
+#ID of Shop
 x-client-id: 6435849e67dfc8c5032e9da4
-//accessToken
+#accessToken
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM1ODQ5ZTY3ZGZjOGM1MDMyZTlkYTQiLCJlbWFpbCI6InNob3BsdWx1MTIzQGdtYWlsLmNvbSIsImlhdCI6MTY4MTgwNzEyOCwiZXhwIjoxNjgxOTc5OTI4fQ.6F6_sq7c4wLhuvW9mBu8SzxYvnSvPHCogrmuotUinmU
 
 # {
@@ -24,7 +24,7 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM1ODQ5ZTY3
 # }
 
 {
-    "product_name": "Furniture 15 64GB",
+    "product_name": "Furniture 15 128GB",
         "product_thumb": "product_thumb",
         "product_description": "New Product",
         "product_price": 500,
@@ -36,3 +36,31 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM1ODQ5ZTY3
             "material": "Gold"
         }
 }
+
+###getAllDraftsForShop
+GET {{url_dev}}/product/drafts/all
+x-api-key: 2491343e22a68383eb2fc6dba1e957fdb0b781bda065d191a0ab1748b7805b55340c405fc8a6888249200ba71edc85af894291eb12eedb8a3a7a3a4a5d9f5dd7
+//ID of Shop
+x-client-id: 6435849e67dfc8c5032e9da4
+//accessToken
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM1ODQ5ZTY3ZGZjOGM1MDMyZTlkYTQiLCJlbWFpbCI6InNob3BsdWx1MTIzQGdtYWlsLmNvbSIsImlhdCI6MTY4MTg4MTg0MywiZXhwIjoxNjgyMDU0NjQzfQ.ghgtA4bH9age7llWN7_URUHlKSMNi19U0FLMsGBmLqI
+
+###getPublishForShop
+GET {{url_dev}}/product/published/all
+x-api-key: 2491343e22a68383eb2fc6dba1e957fdb0b781bda065d191a0ab1748b7805b55340c405fc8a6888249200ba71edc85af894291eb12eedb8a3a7a3a4a5d9f5dd7
+//ID of Shop
+x-client-id: 6435849e67dfc8c5032e9da4
+//accessToken
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM1ODQ5ZTY3ZGZjOGM1MDMyZTlkYTQiLCJlbWFpbCI6InNob3BsdWx1MTIzQGdtYWlsLmNvbSIsImlhdCI6MTY4MTg4MTg0MywiZXhwIjoxNjgyMDU0NjQzfQ.ghgtA4bH9age7llWN7_URUHlKSMNi19U0FLMsGBmLqI
+
+### publishProductByShop
+POST {{url_dev}}/product/publish/643ec21dd3235ad78d22b45e
+x-api-key: 2491343e22a68383eb2fc6dba1e957fdb0b781bda065d191a0ab1748b7805b55340c405fc8a6888249200ba71edc85af894291eb12eedb8a3a7a3a4a5d9f5dd7
+//ID of Shop
+x-client-id: 6435849e67dfc8c5032e9da4
+//accessToken
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM1ODQ5ZTY3ZGZjOGM1MDMyZTlkYTQiLCJlbWFpbCI6InNob3BsdWx1MTIzQGdtYWlsLmNvbSIsImlhdCI6MTY4MTg4MTg0MywiZXhwIjoxNjgyMDU0NjQzfQ.ghgtA4bH9age7llWN7_URUHlKSMNi19U0FLMsGBmLqI
+
+### searchProduct
+GET {{url_dev}}/product/search/Furniture 15
+x-api-key: 2491343e22a68383eb2fc6dba1e957fdb0b781bda065d191a0ab1748b7805b55340c405fc8a6888249200ba71edc85af894291eb12eedb8a3a7a3a4a5d9f5dd7
