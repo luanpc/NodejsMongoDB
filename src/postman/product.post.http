@@ -7,7 +7,7 @@ x-api-key: 2491343e22a68383eb2fc6dba1e957fdb0b781bda065d191a0ab1748b7805b55340c4
 #ID of Shop
 x-client-id: 6435849e67dfc8c5032e9da4
 #accessToken
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM1ODQ5ZTY3ZGZjOGM1MDMyZTlkYTQiLCJlbWFpbCI6InNob3BsdWx1MTIzQGdtYWlsLmNvbSIsImlhdCI6MTY4MjA5MjkyMywiZXhwIjoxNjgyMjY1NzIzfQ.Tntw7AGG1khytElBkLvs8PgUvTFmADmvQRLWgX48_wo
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM1ODQ5ZTY3ZGZjOGM1MDMyZTlkYTQiLCJlbWFpbCI6InNob3BsdWx1MTIzQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjc3ODUzMSwiZXhwIjoxNjgyOTUxMzMxfQ.D-GAjU9nQ7wCRfXlp2W7TArBJX19dnphrTPRftSqNC8
 
 # {
 #     "product_name": "New Jeans",
@@ -24,9 +24,9 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM1ODQ5ZTY3
 # }
 
 {
-    "product_name": "Furniture 15 256GB",
+    "product_name": "Iphone ProMax 14 256GB",
         "product_thumb": "product_thumb",
-        "product_description": "New Product",
+        "product_description": "New Iphone",
         "product_price": 500,
         "product_quantity": 23,
         "product_type": "Furniture",
